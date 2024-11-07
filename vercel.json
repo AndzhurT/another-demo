@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/transcription.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/transcription",
+        "dest": "/api/transcription.py"
+      }
+    ]
+  }
+  
