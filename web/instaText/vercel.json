@@ -1,16 +1,26 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "api/transcription.py",
-        "use": "@vercel/python"
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/transcription.py",   
+      "use": "@vercel/python"           
+    },
+    {
+      "src": "src/main.jsx",         
+      "use": "@vercel/static-build",  
+      "config": {
+        "distDir": "build"              
       }
-    ],
-    "routes": [
-      {
-        "src": "/transcription",
-        "dest": "/api/transcription.py"
-      }
-    ]
-  }
-  
+    }
+  ],
+  "routes": [
+    {
+      "src": "/transcription",         
+      "dest": "/api/transcription.py"
+    },
+    {
+      "src": "/(.*)",                 
+      "dest": "/src/main.jsx"         
+    }
+  ]
+}
